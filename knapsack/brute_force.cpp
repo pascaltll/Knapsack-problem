@@ -1,7 +1,7 @@
 //
 // Created by jctuesta on 04.04.2022.
 //
-//time complexitu 2^n
+//time complexity 2^n
 #include "brute_force.h"
 #include <vector>
 

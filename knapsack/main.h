@@ -6,5 +6,4 @@
 #define KNAPSACK_PROBLEM_MAIN_H
 #include <bits/stdc++.h>
 
-
 #endif //KNAPSACK_PROBLEM_MAIN_H
