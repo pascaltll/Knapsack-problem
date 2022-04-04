@@ -5,6 +5,6 @@
 #ifndef KNAPSACK_PROBLEM_BRUTE_FORCE_H
 #define KNAPSACK_PROBLEM_BRUTE_FORCE_H
 #include <vector>
-int knapsack(int weight_max, std::vector<int> &weight, std::vector<int> &value);
+int knapsack(size_t weight_max, std::vector<size_t> &weight, std::vector<size_t> &value);
 
 #endif //KNAPSACK_PROBLEM_BRUTE_FORCE_H
