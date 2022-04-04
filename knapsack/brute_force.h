@@ -1,0 +1,10 @@
+//
+// Created by jctuesta on 04.04.2022.
+//
+
+#ifndef KNAPSACK_PROBLEM_BRUTE_FORCE_H
+#define KNAPSACK_PROBLEM_BRUTE_FORCE_H
+
+
+
+#endif //KNAPSACK_PROBLEM_BRUTE_FORCE_H
