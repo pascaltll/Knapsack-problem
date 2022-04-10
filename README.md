@@ -4,7 +4,7 @@
 
   The decision problem form of the knapsack problem is the question "can a value of at least V be achieved without exceeding the weight W?
 
-### ![plot](scr/img_1.png)
+### ![plot](imagen/img_1.png)
 
 ## Computational complexity
 - The decision problem form of the knapsack problem is NP-complete, thus there is no known algorithm both correct and fast (polynomial-time) in all cases.
