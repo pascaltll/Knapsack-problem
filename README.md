@@ -25,19 +25,19 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 - #####  Genetic algorithm
 
 - ##### Branch and Bound
-- Branch and bound is an algorithm design paradigm 
-- which is generally used for solving combinatorial
-- optimization problems. These problems typically 
-- exponential in terms of time complexity and may 
-- require exploring all possible permutations in worst case.
-- Branch and Bound solve these problems relatively quickly.
-- Let us consider below 0/1 Knapsack problem to understand
-- Branch and Bound. Given two integer arrays val[0..n-1] and
-- wt[0..n-1] that represent values and weights associated
-- with n items respectively. Find out the maximum value subset 
-- of val[] such that sum of the weights of this subset is 
-- smaller than or equal to Knapsack capacity W.
-- Let us explore all approaches for this problem.
+Branch and bound is an algorithm design paradigm 
+which is generally used for solving combinatorial
+optimization problems. These problems typically 
+exponential in terms of time complexity and may 
+require exploring all possible permutations in worst case.
+Branch and Bound solve these problems relatively quickly.
+Let us consider below 0/1 Knapsack problem to understand
+Branch and Bound. Given two integer arrays val[0..n-1] and
+wt[0..n-1] that represent values and weights associated
+with n items respectively. Find out the maximum value subset 
+of val[] such that sum of the weights of this subset is 
+smaller than or equal to Knapsack capacity W.
+Let us explore all approaches for this problem.
 
 
 
