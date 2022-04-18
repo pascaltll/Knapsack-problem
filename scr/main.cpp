@@ -176,10 +176,9 @@ int dinamic_programing(int W, std::vector<int>& wt, std::vector<int> val, int n)
 
 int brute_force(int weight_max, std::vector<int> &weight, std::vector<int> &value) {
 
-    std::vector<std::vector<int>> K
-            (value.size() + 1, std::vector<int>(weight_max + 1));
+    std::vector<std::vector<int>> K (value.size() + 1, std::vector<int>(weight_max + 1));
     for (int i = 0; i <= value.size(); ++i) {
-        for (int w = 0; w <= weight_max; w++) {
+        for (int w = 0; w <= weight_max; ++w) {
             if (i == 0 || w == 0) {
                 K[i][w] = 0;
             } else if (weight[i - 1] <= w) {
