@@ -1,10 +1,6 @@
 #include <iostream>
 
-int main()
-
-{
-
-
+int main() {
     std::cout << "C++ HIII";
 
 return 0;
