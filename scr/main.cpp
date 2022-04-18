@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 #include<iostream>
 #include <vector>
-int size;
-float capacity;
+
 
 typedef struct Item {
     float weight;
-    int value;
+    int profit;//valor de gananci
     int idx;
 } Item;
 
@@ -18,45 +17,7 @@ typedef struct Node {
     float tree_v;
     float tree_w;
 } Node;
-
-// includes fractional part of the items
-float upper_bound(float tree_v, float tree_w, int idx, std::vector<Item>& arr) {
-    float value = tree_v;
-    float weight = tree_w;
-    for (int i = idx; i < size; i++) {
-        if (weight + arr[i].weight <= capacity) {
-            weight += arr[i].weight;
-            value -= arr[i].value;
-        } else {
-            value -= (float)(capacity - weight) / arr[i].weight * arr[i].value;
-            break;
-        }
-    }
-    return value;
-}
-
-float lower_bound(float tree_v, float tree_w, int idx, std::vector<Item>& arr) {
-    float value = tree_v;
-    float weight = tree_w;
-    for (int i = idx; i < size; i++) {
-        if (weight + arr[i].weight <= capacity) {
-            weight += arr[i].weight;
-            value -= arr[i].value;
-        } else {
-            break;
-        }
-    }
-    return value;
-}
-
-class comp {
-public:
-    bool operator()(Node a, Node b) {
-        return a.lower_b > b.lower_b;
-    }
-};
-
-void assign(Node& a, float upper_b, float lower_b, int level, bool flag, float tree_v, float tree_w) {
+void cast_data(Node& a, float upper_b, float lower_b, int level, bool flag, float tree_v, float tree_w) {
     a.upper_b = upper_b;
     a.lower_b = lower_b;
     a.level = level;
@@ -64,25 +25,78 @@ void assign(Node& a, float upper_b, float lower_b, int level, bool flag, float t
     a.tree_v = tree_v;
     a.tree_w = tree_w;
 }
+class comp {
+public:
+    bool operator()(Node a, Node b) {
+        return a.lower_b > b.lower_b;
+    }
+};
 
-int knapsack(std::vector<Item>& arr) {
-    sort(arr.begin(), arr.end(),[&](Item& a, Item& b) { return a.value / a.weight > b.value / b.weight; });
+class LC {
+private:
+    int _size;
+    float _capacity;
+    std::vector<Item> _arr;
+public:
+    LC(int weight_max, std::vector<int> &weight, std::vector<int> &profit);
+    float upper_bound(float tree_v, float tree_w, int idx);
+    float lower_bound(float tree_v, float tree_w, int idx);
+    int knapsack();
 
+};
+
+LC::LC(int weight_max, std::vector<int> &weight, std::vector<int> &profit) {
+    _capacity = weight_max;
+    _size = profit.size();
+    for (int i = 0; i < _size; ++i) {
+        _arr.push_back(Item{.weight = static_cast<float>(weight[i]),
+                           .profit = profit[i] ,
+                           .idx = i});
+    }
+}
+
+
+float LC::upper_bound(float tree_v, float tree_w, int idx) {
+    float value = tree_v;
+    float weight = tree_w;
+    for (int i = idx; i < _size; i++) {
+        if (weight + _arr[i].weight <= _capacity) {
+            weight += _arr[i].weight;
+            value -= _arr[i].profit;
+        } else {
+            value -= (float)(_capacity - weight) / _arr[i].weight * _arr[i].profit;
+            break;
+        }
+    }
+    return value;
+}
+
+float LC::lower_bound(float tree_v, float tree_w, int idx) {
+    float value = tree_v;
+    float weight = tree_w;
+    for (int i = idx; i < _size; i++) {
+        if (weight + _arr[i].weight <= _capacity) {
+            weight += _arr[i].weight;
+            value -= _arr[i].profit;
+        } else {
+            break;
+        }
+    }
+    return value;
+}
+
+
+int LC::knapsack() {
+    sort(_arr.begin(), _arr.end(), [&](Item& a, Item& b) { return a.profit / a.weight > b.profit / b.weight; });
     float min_lower_b = 0;
     float final_lower_b = INT_MAX;
 
-    std::vector<bool> curr_path(size, false);
-    std::vector<bool> final_path(size, false);
+    std::vector<bool> curr_path(_size, false);
+    std::vector<bool> final_path(_size, false);
     std::priority_queue<Node, std::vector<Node>, comp>pq;
-
     Node left, right;
     Node current;
-    current.lower_b = 0;
-    current.upper_b = 0;
-    current.tree_w = 0;
-    current.tree_v = 0;
-    current.level = 0;
-    current.flag = 0;
+    cast_data(current, 0, 0, 0, 0, 0, 0);
 
     pq.push(current);
 
@@ -95,36 +109,36 @@ int knapsack(std::vector<Item>& arr) {
         if (current.level != 0) {
             curr_path[current.level - 1] = current.flag;
         }
-        if (current.level == size) {
+        if (current.level == _size) {
             if (current.lower_b < final_lower_b)
-                for (int i = 0; i < size; i++) {
-                    final_path[arr[i].idx] = curr_path[i];
+                for (int i = 0; i < _size; i++) {
+                    final_path[_arr[i].idx] = curr_path[i];
                 }
             final_lower_b = std::min(current.lower_b, final_lower_b);
             continue;
         }
         int level = current.level;
-        assign(right,
-               upper_bound(current.tree_v, current.tree_w, level + 1, arr),
-               lower_bound(current.tree_v, current.tree_w,level + 1, arr),
-               level + 1,
-               false,
-               current.tree_v,
-               current.tree_w);
-        if (current.tree_w + arr[current.level].weight <= capacity) {
-            left.upper_b = upper_bound(current.tree_v - arr[level].value,
-                                       current.tree_w + arr[level].weight,
-                                       level + 1, arr);
-            left.lower_b = lower_bound(current.tree_v - arr[level].value,
-                                       current.tree_w + arr[level].weight,
-                                       level + 1, arr);
-            assign(left,
-                   left.upper_b,
-                   left.lower_b,
-                   level + 1,
-                   true,
-                   current.tree_v - arr[level].value,
-                   current.tree_w + arr[level].weight);
+        cast_data(right,
+                  upper_bound(current.tree_v, current.tree_w, level + 1),
+                  lower_bound(current.tree_v, current.tree_w, level + 1),
+                  level + 1,
+                  false,
+                  current.tree_v,
+                  current.tree_w);
+        if (current.tree_w + _arr[current.level].weight <= _capacity) {
+            left.upper_b = upper_bound(current.tree_v - _arr[level].profit,
+                                       current.tree_w + _arr[level].weight,
+                                       level + 1);
+            left.lower_b = lower_bound(current.tree_v - _arr[level].profit,
+                                       current.tree_w + _arr[level].weight,
+                                       level + 1);
+            cast_data(left,
+                      left.upper_b,
+                      left.lower_b,
+                      level + 1,
+                      true,
+                      current.tree_v - _arr[level].profit,
+                      current.tree_w + _arr[level].weight);
         } else {
             left.upper_b = left.lower_b = 1;
         }
@@ -142,37 +156,22 @@ int knapsack(std::vector<Item>& arr) {
     return -final_lower_b;
 }
 
-class least_cost {
-private:
-    int size;
-    float capacity;
-
-public:
-
-    least_cost();
 
 
-};
 
-
-int dinamic_programing(int W, std::vector<int>& wt, std::vector<int> val, int n)
-{
-    // making and initializing dp array
-
+int dinamic_programing(int W, std::vector<int>& wt, std::vector<int> val, int n) {
     std::vector<int> dp (W + 1, 0);
-
-
-
+    
     for (int i = 1; i < n + 1; ++i) {
         for (int w = W; w >= 0; --w) {
 
             if (wt[i - 1] <= w)
-                // finding the maximum value
+                // finding the maximum profit
                 dp[w] = std::max(dp[w],
                                  dp[w - wt[i - 1]] + val[i - 1]);
         }
     }
-    return dp[W]; // returning the maximum value of knapsack
+    return dp[W]; // returning the maximum profit of knapsack
 }
 
 int brute_force(int weight_max, std::vector<int> &weight, std::vector<int> &value) {
@@ -202,13 +201,13 @@ int main() {
     arr.push_back({ 6, 12, 2 });
     arr.push_back({ 9, 18, 3 });
 
-    capacity = 15;
+    int capacity = 15;
     int n = val.size();
-    size = 4;
-    //std::cout << n << std::endl;
+    int size = 4;
     std::cout << dinamic_programing(capacity, wt, val, n) << std::endl;
     std::cout << brute_force(capacity, wt, val) <<std::endl;
-    std::cout << knapsack(arr) << std::endl;
+    LC branch_bound(capacity, wt, val);
+    std::cout << branch_bound.knapsack() << std::endl;
 
     return 0;
 }

@@ -14,7 +14,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b04f004-4899-4056-909d-9f12e731f584" name="Changes" comment="--refixed" />
+    <list default="true" id="6b04f004-4899-4056-909d-9f12e731f584" name="Changes" comment="--now working">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/scr/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +97,7 @@
       <workItem from="1649632774186" duration="1850000" />
       <workItem from="1649681200905" duration="3691000" />
       <workItem from="1650204441829" duration="9459000" />
-      <workItem from="1650282063054" duration="1996000" />
+      <workItem from="1650282063054" duration="4596000" />
     </task>
     <task id="LOCAL-00001" summary="-first structure">
       <created>1649087207245</created>
@@ -200,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650283875903</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="--now working">
+      <created>1650284087663</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1650284087663</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +239,7 @@
     <MESSAGE value="branch and bound" />
     <MESSAGE value="fix" />
     <MESSAGE value="--refixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="--refixed" />
+    <MESSAGE value="--now working" />
+    <option name="LAST_COMMIT_MESSAGE" value="--now working" />
   </component>
 </project>

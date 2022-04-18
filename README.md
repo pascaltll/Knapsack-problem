@@ -1,8 +1,8 @@
 # 0-1 Knapsack problem
 
-  The brute_force problem or rucksack problem is a problem in combinatorial optimization: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than a given limit and the total value is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-size brute_force and must fill it with the most useful items.
+  The brute_force problem or rucksack problem is a problem in combinatorial optimization: Given a set of items, each with a weight and a profit, determine the number of each item to include in a collection so that the total weight is less than a given limit and the total profit is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-_size brute_force and must fill it with the most useful items.
 
-  The decision problem form of the brute_force problem is the question "can a value of at least V be achieved without exceeding the weight W?
+  The decision problem form of the brute_force problem is the question "can a profit of at least V be achieved without exceeding the weight W?
 
 ### ![plot](imagen/img_1.png)
 In the 0-1 Knapsack problem, we are not allowed to break items. We either take the whole item or don’t take it
@@ -11,7 +11,7 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 - The decision problem form of the brute_force problem is NP-complete, thus there is no known algorithm both correct and fast (polynomial-time) in all cases.
 - While the decision problem is NP-complete, the optimization problem is not, its resolution is at least as difficult as the decision problem, and there is no known polynomial algorithm which can tell, given a solution, whether it is optimal 
 - There is a pseudo-polynomial time algorithm using dynamic programming. 
->  There is a link between the "decision" and "optimization" problems in that if there exists a polynomial algorithm that solves the "decision" problem, then one can find the maximum value for the optimization problem in polynomial time by applying this algorithm iteratively while increasing the value of k. On the other hand, if an algorithm finds the optimal value of the optimization problem in polynomial time, then the decision problem can be solved in polynomial time by comparing the value of the solution output by this algorithm with the value of k. Thus, both versions of the problem are of similar difficulty
+>  There is a link between the "decision" and "optimization" problems in that if there exists a polynomial algorithm that solves the "decision" problem, then one can find the maximum profit for the optimization problem in polynomial time by applying this algorithm iteratively while increasing the profit of k. On the other hand, if an algorithm finds the optimal profit of the optimization problem in polynomial time, then the decision problem can be solved in polynomial time by comparing the profit of the solution output by this algorithm with the profit of k. Thus, both versions of the problem are of similar difficulty
 
 ## How to solve
 - ##### Brute Force
@@ -34,9 +34,9 @@ Branch and Bound solve these problems relatively quickly.
 Let us consider below 0/1 Knapsack problem to understand
 Branch and Bound. Given two integer arrays val[0..n-1] and
 wt[0..n-1] that represent values and weights associated
-with n items respectively. Find out the maximum value subset 
+with n items respectively. Find out the maximum profit subset 
 of val[] such that sum of the weights of this subset is 
-smaller than or equal to Knapsack capacity W.
+smaller than or equal to Knapsack _capacity W.
 Let us explore all approaches for this problem.
 
 
