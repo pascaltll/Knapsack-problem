@@ -1,7 +1,7 @@
 //
 // Created by jctuesta on 19.04.2022.
 //
-#include <vector>
+#include "brute_force.h"
 int brute_force (int capacity, std::vector<int> &weight, std::vector<int> &value) {
 
     size_t bit_w = 1;

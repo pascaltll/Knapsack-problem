@@ -1,7 +1,7 @@
 //
 // Created by jctuesta on 19.04.2022.
 //
-#include <vector>
+#include "dp.h"
 int dinamic_programing(int W, std::vector<int>& wt, std::vector<int> val, int n) {
     std::vector<int> dp (W + 1, 0);
 
