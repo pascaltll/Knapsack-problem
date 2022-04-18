@@ -1,5 +1,6 @@
-#include "main.h"
-
+#include <bits/stdc++.h>
+#include<iostream>
+#include <vector>
 int size;
 float capacity;
 
