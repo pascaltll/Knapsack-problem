@@ -1,7 +1,4 @@
-//
-// Created by jctuesta on 19.04.2022.
-//
-
+//llbb method
 #include "LC.h"
 
 void cast_data(Node& a, float upper_b, float lower_b, int level, bool flag, float tree_v, float tree_w) {
