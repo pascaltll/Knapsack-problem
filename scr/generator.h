@@ -4,7 +4,7 @@
 
 #ifndef KNAPSACK_PROBLEM_GENERATOR_H
 #define KNAPSACK_PROBLEM_GENERATOR_H
-
+#include "vector"
 
 void generator (int n, std::vector<int>& weight, std::vector<int>& profit);
 

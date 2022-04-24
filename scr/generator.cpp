@@ -20,12 +20,23 @@ void generator (int n, std::vector<int>& weight, std::vector<int>& profit) {
     for (size_t i = 0; i < n; ++i) {
         profit[i] = p[i]*nstars/nrolls;
     }
-    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    /*std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     std::uniform_int_distribution<> distrib(1, 100);
 
     for (size_t i=0; i<10; ++i) {
        weight[i] =  distrib(gen);
+    }*/
+
+    std::vector<int> w(n);
+    for (size_t i = 0; i < nrolls; ++i) {
+        double number = distribution(generator);
+        if ((number >= 0) && (number < n)) {
+            ++w[int(number)];
+        }
+    }
+    for (size_t i = 0; i < n; ++i) {
+        weight[i] = w[i]*nstars/nrolls;
     }
 
 
