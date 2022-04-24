@@ -5,7 +5,7 @@
 #include "dp.h"
 #include "brute_force.h"
 #include <chrono>
-
+#include "generator.h"
 
 int main() {
     std::vector<int> profit = { 10, 10, 12, 18 };
