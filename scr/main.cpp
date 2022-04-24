@@ -8,7 +8,7 @@
 
 void test(int capacity, std::vector<int>& weight, std::vector<int>& profit) {
 
-    std::cout << "Elapsed time in nanoseconds: " << std::endl;
+    //std::cout << "Elapsed time in nanoseconds: " << std::endl;
     auto start_bf = std::chrono::steady_clock::now();
     int result_bt =  brute_force(capacity, weight, profit);
     auto end_bf = std::chrono::steady_clock::now();
@@ -30,12 +30,14 @@ void test(int capacity, std::vector<int>& weight, std::vector<int>& profit) {
 
 int main() {
    
-    int capacity = 15;
-    int n = 20;
-    std::vector<int> profit(n);
-    std::vector<int> weight(n);
-    generator(n,weight, profit);
-    test(capacity,weight, profit);
+    int capacity = 30;
+    for (int n = 5; n < 15; n++) {
+        std::vector<int> profit(n);
+        std::vector<int> weight(n);
+        generator(n,weight, profit);
+        test(capacity,weight, profit);
+    }
+
 
     return 0;
 }
