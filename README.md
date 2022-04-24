@@ -15,7 +15,8 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 
 ## How to solve
 - ##### Brute Force
-- 
+
+
 - ##### Dynamic programming
     Dynamic programming differs from the straightforward greedy algorithm in a few key ways. Firstly, a dynamic programming bag packing solution enumerates the entire solution space with all possibilities of item combinations that could be used to pack our bag. Where a greedy algorithm chooses the most optimal local solution, dynamic programming algorithms are able to find the most optimal global solution.
     Secondly, dynamic programming uses memoization to store the results of previously computed operations and returns the cached result when the operation occurs again. This allows it to “remember” previous combinations. This takes less time than it would to re-compute the answer again.
@@ -25,38 +26,41 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 - #####  Genetic algorithm
 
 - ##### Branch and Bound
-Branch and bound is an algorithm design paradigm 
-which is generally used for solving combinatorial
-optimization problems. These problems typically 
-exponential in terms of time complexity and may 
-require exploring all possible permutations in worst case.
-Branch and Bound solve these problems relatively quickly.
-Let us consider below 0/1 Knapsack problem to understand
-Branch and Bound. Given two integer arrays val[0..n-1] and
-wt[0..n-1] that represent values and weights associated
-with n items respectively. Find out the maximum profit subset 
-of val[] such that sum of the weights of this subset is 
-smaller than or equal to Knapsack _capacity W.
-Let us explore all approaches for this problem.
+  Branch and bound is an algorithm design paradigm 
+  which is generally used for solving combinatorial
+  optimization problems. These problems typically 
+  exponential in terms of time complexity and may 
+  require exploring all possible permutations in worst case.
+  Branch and Bound solve these problems relatively quickly.
+  Let us consider below 0/1 Knapsack problem to understand
+  Branch and Bound. Given two integer arrays val[0..n-1] and
+  wt[0..n-1] that represent values and weights associated
+  with n items respectively. Find out the maximum profit subset 
+  of val[] such that sum of the weights of this subset is 
+  smaller than or equal to Knapsack _capacity W.
+  Let us explore all approaches for this problem.
 
 
 
 
- # Time Complexity Analysis
-Let’s analyze the time complexity of the dynamic programming algorithm in this section.
+# Time Complexity Analysis
+  Let’s analyze the time complexity of the dynamic programming algorithm in this section.
 
-The first two initializations of function M[ ] can be done in O(1) time. The for loop that 
-iterates from 1 to n takes O(n) time. Under this, there is another for loop which goes from 1 to W.
-It takes O(W) time. Finally, the max() can be computed in O(1) time.
+  The first two initializations of function M[ ] can be done in O(1) time. The for loop that 
+  iterates from 1 to n takes O(n) time. Under this, there is another for loop which goes from 1 to W.
+  It takes O(W) time. Finally, the max() can be computed in O(1) time.
 
-Therefore, a 0-1 knapsack problem can be solved in O(nW) using dynamic programming. 
-It should be noted that the time complexity depends on the weight limit of W.
+  Therefore, a 0-1 knapsack problem can be solved in O(nW) using dynamic programming. 
+  It should be noted that the time complexity depends on the weight limit of W.
 
-Although it seems like it’s a polynomial-time algorithm in the number of items n,
-as W increases from say 100 to 1,000 2^7 to 2^10, processing W goes from 7 bits to 10 bits. 
-The time complexity increases exponentially with the number of bits.
+  Although it seems like it’s a polynomial-time algorithm in the number of items n,
+  as W increases from say 100 to 1,000 2^7 to 2^10, processing W goes from 7 bits to 10 bits. 
+  The time complexity increases exponentially with the number of bits.
 
-For example, if the weight W is not large, then the complexity can be perceived as polynomial
-time in the number of input items, hence the term “pseudo-polynomial”.
+  For example, if the weight W is not large, then the complexity can be perceived as polynomial
+  time in the number of input items, hence the term “pseudo-polynomial”.
 
 > https://people.orie.cornell.edu/dpw/orie6300/Lectures/lec25.pdf
+
+### ![plot](imagen/outpu.png)
+
