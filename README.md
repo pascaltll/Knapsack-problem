@@ -25,7 +25,7 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 
 - #####  Genetic algorithm
 
-- ##### Branch and Bound
+- ##### Least Cost Branch and Bound
   Branch and bound is an algorithm design paradigm 
   which is generally used for solving combinatorial
   optimization problems. These problems typically 
@@ -64,3 +64,5 @@ In the 0-1 Knapsack problem, we are not allowed to break items. We either take t
 
 ### ![plot](imagen/outpu.png)
 
+
+ver por que no es np- ñe problema es np pero la solucion no es n, es deterministica
