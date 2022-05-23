@@ -30,8 +30,8 @@ void test(int capacity, std::vector<int>& weight, std::vector<int>& profit) {
 
 int main() {
    
-    int capacity = 30;
-    for (int n = 5; n < 15; n++) {
+    int capacity = 10;
+    for (int n = 5; n < 30; n++) {
         std::vector<int> profit(n);
         std::vector<int> weight(n);
         generator(n,weight, profit);
