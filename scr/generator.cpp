@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 
-void generator (int n, std::vector<int>& weight, std::vector<int>& profit) {
+void generator (int n, std::vector<int>& weight, std::vector<int>& profit) {//number of data
     //int n = 100; //<<30000
     const int nrolls=10000*n;  // number of experiments
     const int nstars= 10*n;    // maximum number of stars to distribute
@@ -30,7 +30,7 @@ void generator (int n, std::vector<int>& weight, std::vector<int>& profit) {
 
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> distrib(1, 30);
+    std::uniform_int_distribution<> distrib(1, 10);//range
 
     for (int i=0; i< n; ++i) {
         weight[i] = (int)distrib(gen);
